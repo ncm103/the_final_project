@@ -12,19 +12,28 @@ form {
 }
 </style>
 <head>
-    <title>Bike Usage Model</title>
+    <title>UFC Prediction Model</title>
 </head>
 <form action="{{ url_for('main') }}" method="POST">
     <fieldset>
         <legend>Input values:</legend>
-        Weight:
-        <input name="weight" type="number" required>
+        Red Weight:
+        <input name="R_Weight" type="number" required>
         <br>
-        <br> Height:
-        <input name="height" type="number" required>
+        <br> Red Height:
+        <input name="R_Height" type="number" required>
         <br>
-        <br> Age:
-        <input name="age" type="number" required>
+        <br>  Red Age:
+        <input name="R_Age" type="number" required>
+        <br> 
+        <br> Blue Weight:
+        <input name="B_Weight" type="number" required>
+        <br>
+        <br> Blue Height:
+        <input name="B_Height" type="number" required>
+        <br>
+        <br>  Blue Age:
+        <input name="B_Age" type="number" required>
         <br>
         <br>
         <input type="submit">
@@ -34,10 +43,10 @@ form {
 <div class="result" align="center">
     {% if result %}
         {% for variable, value in original_input.items() %}
-            <b>{{ variable }}</b> : {{ value }}
+            <b>{{ variable }}</b> : {{ value }} <br>
         {% endfor %}
         <br>
-        <br> Predicted number of bikes in use:
+        <br> This Fighter has this percent of winning:
            <p style="font-size:50px">{{ result }}</p>
     {% endif %}
 </div>

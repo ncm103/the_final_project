@@ -6,13 +6,13 @@ import tensorflow as tf
 
 
 def init(): 
-	json_file = open('model.json','r')
+	json_file = open('model\model.json','r')
 	loaded_model_json = json_file.read()
 	json_file.close()
 	loaded_model = tf.keras.models.model_from_json(loaded_model_json)
 	#load weights into new model
-	loaded_model.load_weights("model.h5")
-	print("Loaded Model from disk")
+	loaded_model.load_weights("model\model.h5")
+	print("Awesome, your model has been loaded from disk! Cool beans!")
 
 	#compile and evaluate loaded model
 	loaded_model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
@@ -21,4 +21,4 @@ def init():
 	#print('accuracy:', accuracy)
 	#graph = tf.get_default_graph()
 
-	return loaded_model,graph
+	return loaded_model
