@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>UFC Prediction Model</title>
+</head>
+<body>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        Red Weight:
+        <input name="R_Weight" type="number" required>
+        <br>
+        <br> Red Height:
+        <input name="R_Height" type="number" required>
+        <br>
+        <br>  Red Age:
+        <input name="R_Age" type="number" required>
+        <br> 
+        <br> Blue Weight:
+        <input name="B_Weight" type="number" required>
+        <br>
+        <br> Blue Height:
+        <input name="B_Height" type="number" required>
+        <br>
+        <br>  Blue Age:
+        <input name="B_Age" type="number" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }} <br>
+        {% endfor %}
+        <br>
+        <br> This Fighter has this percent of winning:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+</body>
+</html>

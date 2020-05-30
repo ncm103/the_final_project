@@ -1,14 +1,16 @@
 import flask
 import tensorflow
+import sklearn
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
-#from tensorflow import keras
+from tensorflow import keras
+from pickle import load
 from load import *
 
-
-
 model = init()
+
+scaler = load(open('model\scaler.pkl', 'rb'))
+print("Awesome, your scaler has been loaded from disk! Cool beans!")
 
 app = flask.Flask(__name__, template_folder='templates')
 
@@ -31,8 +33,8 @@ def main():
         input_variables = pd.DataFrame([[BPrev, BStreak, B_Age,B_Height,B_Weight,RPrev, RStreak, R_Age,R_Height,R_Weight]],
                                     columns=['BPrev','BStreak','B_Age','B_Height','B_Weight','RPrev','RStreak','R_Age','R_Height','R_Weight'],
                                     dtype=float)
-
-        prediction = model.predict(input_variables)[0][0]
+        input_scaled = scaler.transform(input_variables)
+        prediction = model.predict(input_scaled)[0][0]
         if np.round(prediction) == 0:
             prediction = "Blue"
         else:
@@ -49,6 +51,10 @@ def main():
                                                      },
                                      result=prediction
                                      )
+
+@app.route('/logisticregression')
+def logreg():
+    return(flask.render_template('LogisticRegression.html'))
 
 if __name__ == '__main__':
     app.run(debug=True)
