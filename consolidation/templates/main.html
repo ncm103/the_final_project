@@ -12,9 +12,6 @@
 </head>
 
 <style>
-    body {
-        background-image: url('templates/images/Fig1.png');
-    }
     form {
     margin: auto;
     width: 35%;
@@ -32,7 +29,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightgrey;">
     <div class="container-fluid">
-        <a class="navbar-light bg-secondary text-white m-2 pl-2 pr-2" href="index.html">Main Page</a>
+        <a class="navbar-light bg-secondary text-white m-2 pl-2 pr-2" href="/">Main Page</a>
         <button class="navbar navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -42,22 +39,26 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Machine Learning</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="LogisticRegression.html" target="_blank">Logistic Regression</a>
-                        <a class="dropdown-item" href="?.html" target="_blank">?</a>
-                        <a class="dropdown-item" href="?.html" target="_blank">?</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/00_model_logisticsregression.html" target="_blank">Logistic Regression</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/00_model_gridsearch.html" target="_blank">Grid Search</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/01_training_model.html" target="_blank">Tensorflow Model</a>
 
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Visualizations</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="visualizations.html" target="_blank">Bar Charts</a>
-                        <a class="dropdown-item" href="visualizations2.html" target="_blank">Interactive Charts</a>
-                        <a class="dropdown-item" href="nell.html" target="_blank">Nell</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/00_data_visualization_a.html" target="_blank">Visualization Group 1</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/00_data_visualization_b.html" target="_blank">Visualization Group 2</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/00_data_visualization_c.html" target="_blank">Visualization Group 3</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="data.html" target="_blank">Data</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selected Model</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/02_notraining_model.html" target="_blank">Trained Model</a>
+                        <a class="dropdown-item" href="https://jorgitotorres.github.io/03_debugger.html" target="_blank">Flask Debugger</a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -76,6 +77,7 @@
         <br>  Red Age:
         <input name="R_Age" type="number" required>
         <br> 
+        <hr>
         <br> Blue Weight:
         <input name="B_Weight" type="number" required>
         <br>
@@ -96,7 +98,7 @@
             <b>{{ variable }}</b> : {{ value }} <br>
         {% endfor %}
         <br>
-        <br> This Fighter has this percent of winning:
+        <br> Player prediction of win goes to:
            <p style="font-size:50px">{{ result }}</p>
     {% endif %}
 </div>

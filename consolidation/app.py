@@ -66,7 +66,36 @@ def main():
 
 @app.route('/logisticregression')
 def logreg():
-    return(flask.render_template('LogisticRegression.html'))
+    return(flask.render_template('00_model_logisticsregression.html'))
+
+@app.route('/gridsearch')
+def grisea():
+    return(flask.render_template('00_model_gridsearch.html'))
+
+@app.route('/deeplearning')
+def deelea():
+    return(flask.render_template('01_training_model.html'))
+
+@app.route('/viz1')
+def viz1():
+    return(flask.render_template('00_data_visualization_a.html'))
+
+@app.route('/viz2')
+def viz2():
+    return(flask.render_template('00_data_visualization_b.html'))
+
+@app.route('/viz3')
+def viz3():
+    return(flask.render_template('00_data_visualization_c.html'))
+
+@app.route('/trained')
+def traine():
+    return(flask.render_template('02_notraining_model.html'))
+
+@app.route('/debugging')
+def debugg():
+    return(flask.render_template('03_debugger.html'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
