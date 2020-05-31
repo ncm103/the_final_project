@@ -39,8 +39,20 @@ def main():
             prediction = "Blue"
         else:
             prediction = "Red"   
-        # print(type(prediction))
-        # prediction = np.round(prediction)
+        
+        if int(R_Weight) < 20:
+            prediction = "Invalid Weight"
+        elif int(B_Weight) < 20:
+            prediction = "Invalid Weight"
+        elif int(R_Height) < 20:
+            prediction = "Invalid Height"
+        elif int(B_Height) < 20:
+            prediction = "Invalid Height"
+        elif int(R_Age) < 18:
+            prediction = "Invalid Age"
+        elif int(B_Age) < 18:
+            prediction = "Invalid Age"
+
         return flask.render_template('main.html',
                                       original_input={'R_Weight' :R_Weight,
                                                     'R_Height' :R_Height,
